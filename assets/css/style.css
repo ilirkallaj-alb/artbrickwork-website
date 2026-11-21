@@ -220,7 +220,7 @@ p{margin:0 0 1em}
   .split.reverse .split-media{order:0}
   .split-media img{aspect-ratio:4/3}
   .hero img.bg{object-position:72% 50%}
-  .hero::after{background:linear-gradient(180deg,rgba(20,16,14,.72) 0%,rgba(20,16,14,.78) 60%,rgba(20,16,14,.88) 100%)}
+  .hero::after{background:linear-gradient(180deg,rgba(20,16,14,.5) 0%,rgba(20,16,14,.68) 50%,rgba(20,16,14,.86) 100%)}
   .stats .container{grid-template-columns:repeat(2,1fr)}
   .float-call{display:inline-flex}
   .topbar .hide-sm{display:none}
