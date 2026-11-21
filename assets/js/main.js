@@ -82,7 +82,7 @@
           } else { throw new Error('send'); }
         })
         .catch(function () {
-          status.innerHTML = 'Sorry, something went wrong. Please call us or email <a href="mailto:info@artbrickwork.co.uk">info@artbrickwork.co.uk</a>.';
+          status.innerHTML = 'Sorry, something went wrong. Please call us or email <a href="mailto:Artbrickwork@hotmail.com">Artbrickwork@hotmail.com</a>.';
           status.className = 'form-status err';
         })
         .finally(function () { btn.disabled = false; btn.textContent = 'Request My Free Quote'; });
