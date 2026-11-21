@@ -237,3 +237,95 @@ p{margin:0 0 1em}
   .cta .btn{width:100%}
   .topbar .container{justify-content:center}
 }
+
+/* ===== Visual polish v4 ===== */
+body{color:#221f1d}
+h1,h2{letter-spacing:-.01em}
+.eyebrow{display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:28px;height:2px;background:currentColor;opacity:.8}
+.section-head .eyebrow::after{content:"";width:28px;height:2px;background:currentColor;opacity:.8}
+.header{box-shadow:0 1px 0 rgba(0,0,0,.04)}
+.topbar{border-bottom:3px solid var(--brick)}
+
+/* Hero: real project photo, readable text */
+.hero{min-height:min(86vh,720px)}
+.hero img.bg{object-position:50% 42%}
+.hero::after{background:linear-gradient(95deg,rgba(18,14,12,.9) 0%,rgba(18,14,12,.72) 38%,rgba(18,14,12,.25) 72%,rgba(18,14,12,.1) 100%)}
+.hero h1{font-size:clamp(2.4rem,5.2vw,4.2rem);text-shadow:0 2px 18px rgba(0,0,0,.25)}
+.hero-badges div{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);padding:8px 14px;border-radius:999px;backdrop-filter:blur(4px)}
+
+/* Stats strip with subtle brick coursing */
+.stats{background-color:var(--brick);background-image:
+  linear-gradient(rgba(0,0,0,.08) 2px,transparent 2px),
+  linear-gradient(90deg,rgba(0,0,0,.08) 2px,transparent 2px);
+  background-size:72px 26px,72px 52px;background-position:0 0,36px 26px}
+.stats b{font-size:2.3rem}
+
+/* Cards */
+.card{border-radius:12px;border-color:#e8dfd4}
+.card img{aspect-ratio:3/2}
+.card-body h3{font-size:1.25rem}
+.icon-card{border-radius:12px;transition:.25s}
+.icon-card:hover{border-color:var(--brick);box-shadow:var(--shadow)}
+
+/* Split images: never crop the hands photo */
+.split-media img{border-radius:12px}
+.split-media.natural img{aspect-ratio:auto;height:auto;object-fit:contain;background:#1c1816}
+
+/* Recent projects preview: four balanced tiles */
+.gallery.preview{grid-template-columns:repeat(4,1fr);gap:16px}
+.gallery.preview img{aspect-ratio:4/5}
+.gallery figure{border-radius:12px}
+.gallery figcaption{font-size:1rem}
+
+/* Page heroes */
+.page-hero{padding:130px 0 96px}
+.page-hero::after{background:linear-gradient(180deg,rgba(18,14,12,.45),rgba(18,14,12,.85))}
+
+/* Quotes & CTA */
+.quote{border-top:4px solid var(--brick)}
+.cta{border-top:3px solid var(--brick)}
+
+@media (max-width:1024px){
+  .gallery.preview{grid-template-columns:repeat(2,1fr)}
+  .gallery.preview img{aspect-ratio:4/3}
+}
+@media (max-width:860px){
+  .hero{min-height:auto}
+  .hero img.bg{object-position:58% 50%}
+  .hero::after{background:linear-gradient(180deg,rgba(18,14,12,.55) 0%,rgba(18,14,12,.7) 55%,rgba(18,14,12,.88) 100%)}
+  .hero-badges{gap:10px}
+  .page-hero{padding:110px 0 70px}
+}
+@media (max-width:560px){
+  .gallery.preview{gap:10px}
+  .gallery.preview img{aspect-ratio:1/1}
+  .hero-badges div{font-size:.88rem;padding:6px 12px}
+  .stats b{font-size:1.9rem}
+}
+
+/* v5: 3-item stats strip */
+.stats.stats-3 .container{grid-template-columns:repeat(3,1fr)}
+@media (max-width:560px){.stats.stats-3 .container{gap:10px}.stats.stats-3 b{font-size:1.6rem}.stats.stats-3 span{font-size:.8rem}}
+
+/* v5: testimonials carousel */
+.tslider{position:relative;padding:0 56px}
+.ts-track{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:4px 2px 8px}
+.ts-track::-webkit-scrollbar{display:none}
+.ts-track .quote{flex:0 0 calc((100% - 24px)/2);scroll-snap-align:start;margin:0;display:flex;flex-direction:column}
+.ts-track .quote cite{margin-top:auto}
+.ts-btn{position:absolute;top:calc(50% - 22px);transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--brick);font-size:1.9rem;line-height:1;cursor:pointer;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;padding:0 0 4px}
+.ts-btn:hover{background:var(--brick);color:#fff}
+.ts-btn:disabled{opacity:.35;cursor:default;background:#fff;color:var(--brick)}
+.ts-prev{left:0}.ts-next{right:0}
+.ts-dots{display:flex;justify-content:center;gap:8px;margin-top:18px}
+.ts-dots button{width:9px;height:9px;border-radius:50%;border:0;padding:0;background:#d6ccc0;cursor:pointer}
+.ts-dots button.on{background:var(--brick);width:22px;border-radius:5px}
+@media (max-width:760px){
+  .tslider{padding:0}
+  .ts-track{gap:14px}
+  .ts-track .quote{flex-basis:100%}
+  .ts-btn{top:auto;bottom:-6px;transform:none;width:40px;height:40px}
+  .ts-prev{left:calc(50% - 110px)}.ts-next{right:calc(50% - 110px)}
+  .ts-dots{margin-top:22px;min-height:28px;align-items:center}
+}
