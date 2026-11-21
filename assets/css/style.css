@@ -329,3 +329,7 @@ h1,h2{letter-spacing:-.01em}
   .ts-prev{left:calc(50% - 110px)}.ts-next{right:calc(50% - 110px)}
   .ts-dots{margin-top:22px;min-height:28px;align-items:center}
 }
+
+/* v6: insured trust badge */
+.hero-badges .badge-insured{background:rgba(217,154,43,.18);border-color:rgba(217,154,43,.75);font-weight:600}
+.hero-badges .badge-insured svg{width:16px;height:16px;color:#e8b04a}
