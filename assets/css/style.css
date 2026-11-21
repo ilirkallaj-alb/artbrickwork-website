@@ -206,7 +206,7 @@ p{margin:0 0 1em}
 }
 @media (max-width:860px){
   .menu-toggle{display:block}
-  .nav{position:fixed;inset:76px 0 auto 0;background:#fff;border-bottom:1px solid var(--line);max-height:0;overflow:hidden;transition:max-height .3s ease;box-shadow:0 20px 30px rgba(0,0,0,.08)}
+  .nav{position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);max-height:0;overflow:hidden;transition:max-height .3s ease;box-shadow:0 20px 30px rgba(0,0,0,.08)}
   .nav.open{max-height:520px}
   .nav ul{flex-direction:column;align-items:stretch;gap:0;padding:10px 22px 24px}
   .nav li a{display:block;padding:14px 0;border-bottom:1px solid var(--line)}
