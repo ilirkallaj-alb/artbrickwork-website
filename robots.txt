@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://artbrickwork.co.uk/sitemap.xml
