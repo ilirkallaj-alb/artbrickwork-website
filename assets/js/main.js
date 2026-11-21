@@ -101,14 +101,20 @@
       if (dotsBox.children.length !== n) {
         dotsBox.innerHTML = '';
         for (var i = 0; i < n; i++) { var b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', 'Go to testimonial ' + (i + 1));
-          (function (k) { b.addEventListener('click', function () { track.scrollTo({ left: k * step(), behavior: 'smooth' }); }); })(i); dotsBox.appendChild(b); }
+          (function (k) { b.addEventListener('click', function () { go(k); }); })(i); dotsBox.appendChild(b); }
       }
       for (var j = 0; j < dotsBox.children.length; j++) dotsBox.children[j].classList.toggle('on', j === c);
       prev.disabled = track.scrollLeft <= 2;
       next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 2;
     }
-    prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
-    next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: 'smooth' }); });
+    function go(k) {
+      k = Math.max(0, Math.min(pages() - 1, k));
+      var x = Math.min(k * step(), track.scrollWidth - track.clientWidth);
+      track.scrollTo({ left: x, behavior: 'smooth' });
+      setTimeout(function () { if (Math.abs(track.scrollLeft - x) > 4) { track.style.scrollBehavior = 'auto'; track.scrollLeft = x; track.style.scrollBehavior = ''; draw(); } }, 500);
+    }
+    prev.addEventListener('click', function () { go(cur() - 1); });
+    next.addEventListener('click', function () { go(cur() + 1); });
     var t; track.addEventListener('scroll', function () { clearTimeout(t); t = setTimeout(draw, 60); }, { passive: true });
     window.addEventListener('resize', draw);
     draw();
