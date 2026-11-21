@@ -333,3 +333,71 @@ h1,h2{letter-spacing:-.01em}
 /* v6: insured trust badge */
 .hero-badges .badge-insured{background:rgba(217,154,43,.18);border-color:rgba(217,154,43,.75);font-weight:600}
 .hero-badges .badge-insured svg{width:16px;height:16px;color:#e8b04a}
+
+/* v7: testimonial cards fill their grid cell */
+blockquote.quote{margin:0}
+
+/* ===== v7: mobile refinement ===== */
+@media (max-width:560px){
+  .container{padding-left:20px;padding-right:20px}
+  .section{padding:56px 0}
+  .section-head{margin-bottom:30px}
+  .section-head h2,h2{font-size:1.75rem}
+  .lead{font-size:1.02rem}
+  /* hero */
+  .hero-content{padding:48px 0 40px}
+  .hero h1{font-size:2.25rem;line-height:1.12}
+  .hero p{font-size:1rem;line-height:1.6}
+  .hero .eyebrow{font-size:.72rem;letter-spacing:.12em}
+  .hero-actions{gap:10px;margin-top:22px}
+  .btn{padding:12px 22px;font-size:.95rem}
+  .hero-actions .btn,.cta .btn{width:100%;min-height:46px}
+  .hero-badges{margin-top:24px;gap:8px}
+  .hero-badges div{font-size:.8rem;padding:6px 11px}
+  .hero-badges svg{width:15px;height:15px}
+  /* stats */
+  .stats .container{padding-top:26px;padding-bottom:26px;row-gap:18px}
+  .stats b{font-size:1.7rem}
+  .stats span{font-size:.84rem}
+  /* service cards */
+  .grid{gap:18px}
+  .card img{aspect-ratio:16/10}
+  .card-body{padding:18px 20px 20px}
+  .card-body h3{font-size:1.15rem;margin-bottom:.35em}
+  .card-body p{font-size:.94rem;margin-bottom:12px}
+  /* value cards: icon beside title */
+  .icon-card{padding:18px 20px;display:grid;grid-template-columns:44px 1fr;column-gap:14px;align-items:center}
+  .icon-card .icon{width:44px;height:44px;margin:0;grid-row:span 1}
+  .icon-card h3{margin:0;font-size:1.12rem}
+  .icon-card p{grid-column:1 / -1;margin-top:10px;font-size:.94rem}
+  /* why choose us: badge below image, not over it */
+  .split{gap:28px}
+  .split-media .float{position:static;display:flex;align-items:center;gap:12px;max-width:none;margin-top:12px;padding:12px 16px;box-shadow:0 6px 18px rgba(28,26,25,.08);font-size:.92rem}
+  .split-media .float b{font-size:1.5rem}
+  .ticks li{font-size:.95rem}
+  /* gallery */
+  .gallery figcaption{font-size:.82rem;padding:26px 10px 9px;line-height:1.25}
+  /* testimonials */
+  .quote{padding:22px 20px}
+  .quote p{font-size:.96rem}
+  /* page heroes & CTA */
+  .page-hero{padding:72px 0 52px}
+  .page-hero h1{font-size:2rem}
+  .page-hero p{font-size:1rem}
+  .cta .container{padding-top:52px;padding-bottom:52px;gap:20px}
+  .cta h2{font-size:1.6rem}
+  .cta .btn+.btn{margin-top:0}
+  /* footer */
+  .footer{padding-top:52px}
+  .footer .grid{gap:30px}
+  /* floating call: compact round button that never hides content */
+  .float-call{width:54px;height:54px;padding:0;justify-content:center;align-items:center;font-size:0;right:14px;bottom:14px}
+  .float-call svg{width:22px;height:22px}
+  body{padding-bottom:0}
+  .footer-bottom{padding-bottom:80px}
+  .step{padding:22px 64px 22px 20px}
+  .step::before{font-size:2rem;right:18px;top:14px}
+  .form-row{gap:0}
+  .form-card{padding:24px 18px}
+  .filters{gap:8px}
+}
