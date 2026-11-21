@@ -88,4 +88,29 @@
         .finally(function () { btn.disabled = false; btn.textContent = 'Request My Free Quote'; });
     });
   }
+
+  // Testimonials carousel
+  document.querySelectorAll('.tslider').forEach(function (sl) {
+    var track = sl.querySelector('.ts-track'), cards = track.children,
+        prev = sl.querySelector('.ts-prev'), next = sl.querySelector('.ts-next'), dotsBox = sl.querySelector('.ts-dots');
+    function step() { return cards.length > 1 ? cards[1].offsetLeft - cards[0].offsetLeft : track.clientWidth; }
+    function pages() { return Math.max(1, Math.round((track.scrollWidth - track.clientWidth) / step()) + 1); }
+    function cur() { return Math.round(track.scrollLeft / step()); }
+    function draw() {
+      var n = pages(), c = Math.min(cur(), n - 1);
+      if (dotsBox.children.length !== n) {
+        dotsBox.innerHTML = '';
+        for (var i = 0; i < n; i++) { var b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', 'Go to testimonial ' + (i + 1));
+          (function (k) { b.addEventListener('click', function () { track.scrollTo({ left: k * step(), behavior: 'smooth' }); }); })(i); dotsBox.appendChild(b); }
+      }
+      for (var j = 0; j < dotsBox.children.length; j++) dotsBox.children[j].classList.toggle('on', j === c);
+      prev.disabled = track.scrollLeft <= 2;
+      next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 2;
+    }
+    prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
+    next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: 'smooth' }); });
+    var t; track.addEventListener('scroll', function () { clearTimeout(t); t = setTimeout(draw, 60); }, { passive: true });
+    window.addEventListener('resize', draw);
+    draw();
+  });
 })();
